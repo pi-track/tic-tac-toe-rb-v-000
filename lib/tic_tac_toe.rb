@@ -32,13 +32,7 @@ end
 
 # code your #valid_move? method here
 def valid_move?(board, index)
-  if position_taken?(board, index) == true
-    false
-  elsif index > board.size-1
-    false
-  else
-    true
-  end
+  (position_taken?(board, index) == true || index.between?(0,board.size-1) == false)? false : true
 end
 
 def turn(board)
