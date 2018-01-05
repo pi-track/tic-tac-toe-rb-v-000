@@ -40,13 +40,16 @@ def turn(board)
   input = gets.strip
   index = input_to_index(input)
   if valid_move?(board, index)
-    move(board, index, (turn_count(board) % 2 == 0)? "X":"O")
+    move(board, index, current_player)
   else
     puts "That's not valid input"
     turn(board)
   end
   display_board(board)
 end
+
+def current_player(board)
+  return (turn_count(board) % 2 == 0)? "X":"O")
 
 def turn_count(board)
   return board.select {|index| index != "" && index != " "}.size
