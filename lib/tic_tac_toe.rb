@@ -55,7 +55,7 @@ def turn(board)
 end
 
 def turn_count(board)
-  turns = board.select {|index| index != "" || index || " "}
+  turns = board.select {|index| index != "" || index != " "}
   return turns.size
 end
 
