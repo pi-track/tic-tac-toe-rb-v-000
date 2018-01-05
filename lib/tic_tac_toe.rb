@@ -83,4 +83,9 @@ def winner(board)
 end
 
 def play(board)
+  until over?(board) == true
+    turn(board)
+  end
+  (won?(board)==true)? puts "Congratulations #{winner}!" :
+
 end
