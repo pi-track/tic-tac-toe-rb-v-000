@@ -41,6 +41,23 @@ def valid_move?(board, index)
   end
 end
 
+def turn(board)
+  puts "Please enter 1-9:"
+  input = gets.strip
+  index = input_to_index(input)
+  if valid_move?(board, index)
+    move(board, index)
+  else
+    puts "That's not valid input"
+    turn(board)
+  end
+  display_board(board)
+end
+
+def turn_count(board)
+  return board.select {|index| (index != "" || index || " "}).size
+end
+
 def won?(board)
   WIN_COMBINATIONS.each do |combo|
     positions = [board[combo[0]],board[combo[1]],board[combo[2]]]
